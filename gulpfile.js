@@ -9,7 +9,8 @@ import autoPrefixer from 'gulp-autoprefixer'
 import chokidar from 'chokidar'
 import dartSass from 'gulp-dart-sass'
 import image from 'gulp-image'
-const { series, parallel, src, dest, task } = gulp
+import ghPages from 'gulp-gh-pages'
+const { series, parallel, src, dest, task, ghPages } = gulp
 
 // Сборка HTML
 task('html', async () => {
@@ -82,3 +83,13 @@ const watch = () => {
 }
 
 task('watch', watch)
+
+// Задача для развертывания сайта на GitHub Pages
+gulp.task('deploy', () => {
+	return gulp
+		.src('./build/**/*') // Предполагается, что собранные файлы находятся в папке 'dist'
+		.pipe(ghPages())
+})
+
+// Задача по умолчанию, которая выполняет сборку и развертывание
+gulp.task('default', gulp.series('build', 'deploy'))
