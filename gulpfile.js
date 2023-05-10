@@ -19,7 +19,7 @@ task('html', async () => {
 				prefix: '@@',
 			})
 		)
-		.pipe(dest('build'))
+		.pipe(dest('docs'))
 })
 
 // Сборка, автопрефиксы, минификация SCSS
@@ -33,26 +33,26 @@ task('scss', async () => {
 		)
 		.pipe(csso())
 		.pipe(concat('index.css'))
-		.pipe(dest('build'))
+		.pipe(dest('docs'))
 })
 
 // Сборка JS
 task('js', async () => {
-	return src('./src/scripts/*').pipe(dest('build/scripts'))
+	return src('./src/scripts/*').pipe(dest('docs/scripts'))
 })
 
 // Сборка изображений
 gulp.task('image', async () => {
-	gulp.src('./src/assets/**/**').pipe(image()).pipe(gulp.dest('build/assets'))
+	gulp.src('./src/assets/**/**').pipe(image()).pipe(gulp.dest('docs/assets'))
 })
 
 gulp.task('fonts', async () => {
-	gulp.src('./src/fonts/*').pipe(gulp.dest('build/fonts'))
+	gulp.src('./src/fonts/*').pipe(gulp.dest('docs/fonts'))
 })
 
-// Очистка build папки
+// Очистка docs папки
 task('clear', () => {
-	return deleteAsync('build/*')
+	return deleteAsync('docs/*')
 })
 
 // Дефолтная таска
@@ -65,7 +65,7 @@ task(
 const watch = () => {
 	sync.init({
 		server: {
-			baseDir: 'build',
+			baseDir: 'docs',
 		},
 		reloadOnRestart: false,
 	})
