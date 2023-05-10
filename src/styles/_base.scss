@@ -1,0 +1,61 @@
+* {
+	font-family: 'Lato', sans-serif;
+	color: $primary;
+}
+
+html {
+	overflow-x: hidden;
+}
+// Disable all scrolls
+html.no-touch {
+	overflow-y: hidden;
+	touch-action: none;
+}
+
+// Body
+// body {
+// 	background-color: $bg;
+// }
+
+// Container
+[class*='__container'] {
+	width: 100%;
+	max-width: calc($main-container-width + ($main-px * 2));
+	margin: 0 auto;
+	padding: 0 $main-px;
+}
+
+// h1
+$h1-font-sizes: (32px, 34px, 36px, 38px, 42px, 46px, 48px);
+
+h1 {
+	font-weight: 700;
+	font-size: 30px;
+	@include set-breakpoint-values('font-size', $h1-font-sizes);
+}
+
+// h2
+$h2-font-sizes: (24px, 26px, 28px, 30px, 32px, 34px, 36px);
+
+h2 {
+	font-weight: 700;
+	font-size: 22px;
+	@include set-breakpoint-values('font-size', $h2-font-sizes);
+}
+
+// h3
+$h3-font-sizes: (20px, 22px, 24px, 26px, 28px);
+
+h3 {
+	font-size: 18px;
+	@include set-breakpoint-values('font-size	', $h3-font-sizes);
+}
+
+// h4
+$h4-font-sizes: (18px, 20px, 22px, 24px);
+
+h4 {
+	font-weight: 600;
+	font-size: 17px;
+	@include set-breakpoint-values('font-size', $h4-font-sizes);
+}

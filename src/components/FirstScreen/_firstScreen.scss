@@ -1,0 +1,122 @@
+// Local vars
+$block-height: 850px;
+$line-width: 5px;
+$line-height: 1.5px;
+$line-x-offset: 10px;
+
+$content-mt: 80px;
+
+$button-width: 183px;
+$button-height: 43px;
+$button-border-radius: 4px;
+
+$button-background--solid: $accent-blue;
+$button-background-hover--solid: $accent-blue-2;
+
+$button-border-color--solid: #fff;
+$button-text-color--solid: #fff;
+
+$button-background--outline: $primary;
+$button-border-color--outline: #6f6d7b;
+$button-text-color--outline: #2a2b30;
+
+// First Screen
+.first-screen {
+	height: $block-height;
+	background: url('assets/first-screen-bg.png') center center/cover no-repeat;
+	@include flex-items-justify(center, center);
+	@media screen and (max-width: $lg) {
+		height: calc($block-height - 200px);
+	}
+	@media screen and (max-width: $sm) {
+		height: 100%;
+		padding: 120px 0 60px;
+	}
+	// Text Color
+	* {
+		color: $black;
+	}
+	// H1
+	h1 {
+		text-transform: uppercase;
+		max-width: 780px;
+		& > span {
+			color: $accent-blue;
+		}
+	}
+	// Text
+	&__text {
+		margin-top: $content-mt;
+		font-size: 16px;
+		@media screen and (min-width: $sx2) {
+			font-size: 18px;
+		}
+		@media screen and (min-width: $sm) {
+			font-size: 20px;
+		}
+		@media screen and (max-width: $md) {
+			margin-top: calc($content-mt/2);
+		}
+		// Text heading
+		&-heading {
+			font-weight: bold;
+		}
+		// Text list
+		&-list {
+			margin-top: 10px;
+			&_item:not(:first-child) {
+				margin-top: 5px;
+			}
+			&_item {
+				position: relative;
+				padding-left: calc($line-x-offset * 2 + $line-width);
+				&::before {
+					@include pseudo-elem($line-width, $line-height);
+					background-color: $black;
+					top: 50%;
+					left: $line-x-offset;
+					transform: translateY(-100%);
+				}
+			}
+		}
+	}
+	// Buttons
+	&__buttons {
+		margin-top: $content-mt;
+		display: flex;
+		gap: 30px;
+		font-size: 13px;
+		@media screen and (max-width: $md) {
+			margin-top: calc($content-mt/2);
+		}
+		&-button {
+			width: $button-width;
+			height: $button-height;
+			border-radius: $button-border-radius;
+			border: 1px solid;
+			text-transform: uppercase;
+			transition: box-shadow $main-transition;
+			@include flex-items-justify(center, center);
+			& > span {
+				line-height: 1;
+			}
+			&:hover {
+				@include button-hover-shadow($black);
+			}
+			&--solid {
+				background-color: $button-background--solid;
+				border-color: $button-border-color--solid;
+				& > span {
+					color: $button-text-color--solid;
+				}
+			}
+			&--outline {
+				background-color: $button-background--outline;
+				border-color: $button-border-color--outline;
+				& > span {
+					color: $button-text-color--outline;
+				}
+			}
+		}
+	}
+}

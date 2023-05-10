@@ -1,0 +1,56 @@
+// Local vars
+$header-py: 33px;
+$navigation-gap: (15px, 20px, 25px, 30px, 40px, 50px, 60px);
+$logo-font-sizes: (16px, 18px, 20px, 22px, 24px, 26px, 28px);
+
+// Header
+.header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	padding: $header-py 0;
+	text-transform: uppercase;
+	background-color: $header-bg;
+	z-index: 2;
+	@media screen and (max-width: $md) {
+		padding: calc($header-py - 15px) 0;
+	}
+	// Container
+	&__container {
+		@include flex-items-justify(center, space-between);
+		gap: 10px;
+		@media screen and (max-width: $sx) {
+			flex-direction: column;
+		}
+	}
+	// Logo
+	&__logo {
+		font-family: 'Raleway', sans-serif;
+		font-weight: bold;
+		font-size: 16px;
+		@include set-breakpoint-values(font-size, $logo-font-sizes);
+		& > span {
+			color: $accent-blue-2;
+		}
+	}
+	// Navigation
+	&__navigation {
+		& > ul {
+			gap: 10px;
+			@include flex-items-justify(center, space-between);
+			@include set-breakpoint-values(gap, $navigation-gap);
+			& > li {
+				& > a {
+					font-size: 13px;
+					transition: color $main-transition;
+					@media screen and (max-width: $sm) {
+						font-size: 10px;
+					}
+					&:hover {
+						color: $hover-blue;
+					}
+				}
+			}
+		}
+	}
+}

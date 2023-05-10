@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="index.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header class="header"><div class="header__container">
+	<a href="/" class="header__logo">LoremIpsum.<span>Net</span></a>
+	<nav class="header__navigation">
+		<ul>
+			<li><a href="#">Бизнес</a></li>
+			<li><a href="#">О нас</a></li>
+			<li><a href="#">Цены</a></li>
+			<li><a href="#">Оформить заказ</a></li>
+		</ul>
+	</nav>
+</div>
+</header>
+		<main>
+			<section class="first-screen">
+				<div class="first-screen__container">
+	<h1>
+		<span>Lorem ipsum</span> dolor sit amet consectetur <span>adipiscing</span>
+	</h1>
+	<div class="first-screen__text">
+		<p class="first-screen__text-heading">
+			At vero eos et accusamus et iusto odio dignissimos ducimus!
+		</p>
+		<ul class="first-screen__text-list">
+			<li class="first-screen__text-list_item">Totam rem aperiam eaque ipsa</li>
+			<li class="first-screen__text-list_item">
+				Sit voluptatem accusantium doloremque laudantium
+			</li>
+			<li class="first-screen__text-list_item">
+				Sed ut perspiciatis, unde omnis iste natus error
+			</li>
+		</ul>
+	</div>
+	<div class="first-screen__buttons">
+		<button
+			class="first-screen__buttons-button first-screen__buttons-button--solid"
+		>
+			<span>Заказать</span>
+		</button>
+		<button
+			class="first-screen__buttons-button first-screen__buttons-button--outline"
+		>
+			<span>Подробнее</span>
+		</button>
+	</div>
+</div>
+
+			</section>
+			<section class="ordering">
+				<div class="ordering__container">
+	<div class="ordering__title">
+		<h2 class="ordering__title-heading">Оформление <span>Заказа</span></h2>
+		<p class="ordering__title-subheading">
+			Перед заполнением формы ознакомьтесь с нашей схемой работы!
+		</p>
+	</div>
+	<div class="ordering__scheme">
+		<!-- Шаблон -->
+		<div class="dots"></div>
+	</div>
+	<form class="order-form" id="order-form">
+	<!-- Row -->
+	<div class="order-form__row">
+		<!-- Select Box -->
+		<div class="order-form__item select-box">
+			<div class="selected">
+				<span>Выберите тип системы</span>
+			</div>
+			<div class="options">
+				<div class="options__wrap"></div>
+			</div>
+		</div>
+		<!-- Email Box -->
+		<div class="order-form__item email-box">
+			<label for="email">
+				<input
+					type="email"
+					name="email"
+					id="email"
+					placeholder="Ваш e-mail"
+					autocomplete="email"
+				/>
+			</label>
+		</div>
+		<!-- Name Box -->
+		<div class="order-form__item name-box">
+			<label for="name">
+				<input
+					type="text"
+					name="name"
+					id="name"
+					placeholder="Ваше имя"
+					autocomplete="given-name"
+				/>
+			</label>
+		</div>
+	</div>
+	<!-- Row -->
+	<div class="order-form__row">
+		<!-- Range Box -->
+		<div class="order-form__item range-box">
+			<div class="range-box__progress">
+				<span class="range-box__progress-title">
+					Sed ut perspiciatis, unde omnis iste natus
+				</span>
+				<span class="range-box__progress-value"></span>
+			</div>
+			<input
+				type="range"
+				name="range"
+				id="range"
+				min="0"
+				max="100"
+				value="75"
+			/>
+		</div>
+		<!-- File Box -->
+		<div class="order-form__item file-box">
+			<label for="file">
+				<input type="file" id="file" name="file" />
+				<div class="file-box__custom-choose">
+					<img src="assets/icons/doc-small.svg" alt="Документ" />
+					<span>Прикрепить файл</span>
+				</div>
+			</label>
+		</div>
+	</div>
+	<!-- Send Button -->
+	<div class="order-form__row">
+		<button id="submit-button" class="order-form__item send-button">
+			Отправить
+		</button>
+	</div>
+</form>
+
+</div>
+
+			</section>
+		</main>
+		<footer class="footer"><div class="footer__container">
+	<div>© 2018 «LoremIpsum.net» Все права защищены.</div>
+	<div class="footer__divider"></div>
+	<div class="footer__payment">
+		<div class="footer__payment-item">
+			<img src="assets/icons/qiwi.svg" alt="Qiwi" />
+			<div class="footer__payment-item_text">Qiwi wallet</div>
+		</div>
+		<div class="footer__payment-item">
+			<img src="assets/icons/yandex-money.svg" alt="Yandex Money" />
+			<div class="footer__payment-item_text">Yandex Money</div>
+		</div>
+		<div class="footer__payment-item">
+			<img src="assets/icons/webmoney.svg" alt="Web Money" />
+			<div class="footer__payment-item_text">Web Money</div>
+		</div>
+	</div>
+	<div class="footer__divider"></div>
+	<div class="footer__contacts">
+		<a href="mailto:info@ipsum228.com" class="footer__contacts-item">
+			<img src="assets/icons/mail-small.svg" alt="Email" />
+			<div class="footer__contacts-item_text">info@ipsum228.com</div>
+		</a>
+		<a href="https://vk.com/" target="_blank" class="footer__contacts-item">
+			<img src="assets/icons/vk.svg" alt="VK" />
+			<div class="footer__contacts-item_text">Мы вконтакте</div>
+		</a>
+	</div>
+</div>
+</footer>
+		<script type="module" src="scripts/script.js"></script>
+	</body>
+</html>

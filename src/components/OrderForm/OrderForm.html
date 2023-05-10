@@ -1,0 +1,74 @@
+<form class="order-form" id="order-form">
+	<!-- Row -->
+	<div class="order-form__row">
+		<!-- Select Box -->
+		<div class="order-form__item select-box">
+			<div class="selected">
+				<span>Выберите тип системы</span>
+			</div>
+			<div class="options">
+				<div class="options__wrap"></div>
+			</div>
+		</div>
+		<!-- Email Box -->
+		<div class="order-form__item email-box">
+			<label for="email">
+				<input
+					type="email"
+					name="email"
+					id="email"
+					placeholder="Ваш e-mail"
+					autocomplete="email"
+				/>
+			</label>
+		</div>
+		<!-- Name Box -->
+		<div class="order-form__item name-box">
+			<label for="name">
+				<input
+					type="text"
+					name="name"
+					id="name"
+					placeholder="Ваше имя"
+					autocomplete="given-name"
+				/>
+			</label>
+		</div>
+	</div>
+	<!-- Row -->
+	<div class="order-form__row">
+		<!-- Range Box -->
+		<div class="order-form__item range-box">
+			<div class="range-box__progress">
+				<span class="range-box__progress-title">
+					Sed ut perspiciatis, unde omnis iste natus
+				</span>
+				<span class="range-box__progress-value"></span>
+			</div>
+			<input
+				type="range"
+				name="range"
+				id="range"
+				min="0"
+				max="100"
+				value="75"
+			/>
+		</div>
+		<!-- File Box -->
+		<div class="order-form__item file-box">
+			<label for="file">
+				<input type="file" id="file" name="file" />
+				<div class="file-box__custom-choose">
+					<img src="assets/icons/doc-small.svg" alt="Документ" />
+					<span>Прикрепить файл</span>
+				</div>
+			</label>
+		</div>
+	</div>
+	<!-- Send Button -->
+	<div class="order-form__row">
+		<button id="submit-button" class="order-form__item send-button">
+			Отправить
+		</button>
+	</div>
+</form>

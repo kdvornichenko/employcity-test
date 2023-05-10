@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="index.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header class="header">@@include('./components/Header/Header.html')</header>
+		<main>
+			<section class="first-screen">
+				@@include('./components/FirstScreen/FirstScreen.html')
+			</section>
+			<section class="ordering">
+				@@include('./components/Ordering/Ordering.html')
+			</section>
+		</main>
+		<footer class="footer">@@include('./components/Footer/Footer.html')</footer>
+		<script type="module" src="scripts/script.js"></script>
+	</body>
+</html>

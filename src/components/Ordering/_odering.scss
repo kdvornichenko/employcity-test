@@ -1,0 +1,117 @@
+// Local vars
+$ordering-py: (
+	60px 0 90px,
+	70px 0 100px,
+	80px 0 110px,
+	90px 0 120px,
+	100px 0 130px,
+	110px 0 140px,
+	121px 0 151px
+);
+
+$scheme-item-circle-border-color: #286690;
+$scheme-item-circle-border: 5px solid $scheme-item-circle-border-color;
+$scheme-item-circle-size: 100px;
+
+$scheme-item-dots-size: 6px;
+
+// Ordering
+.ordering {
+	background: url('assets/ordering-map-bg.png') center center/cover no-repeat
+		$bg;
+	padding: 50px 0 80px;
+	@include set-breakpoint-values(padding, $ordering-py);
+	// Title
+	&__title {
+		text-align: center;
+
+		&-heading {
+			text-transform: uppercase;
+
+			& > span {
+				color: $accent-blue;
+			}
+		}
+
+		&-subheading {
+			margin-top: 30px;
+			font-size: 18px;
+			color: #bbb;
+		}
+	}
+	// Scheme
+	&__scheme {
+		margin-top: 80px;
+		position: relative;
+		gap: 10px;
+		@include flex-items-justify(flex-start, space-between);
+		@media screen and (max-width: $sm) {
+			margin-top: 40px;
+			flex-direction: column;
+			align-items: center;
+			gap: 30px;
+		}
+		&-item {
+			width: 209px;
+			@media screen and (min-width: $sm) {
+				z-index: 1;
+			}
+
+			& > .img-holder {
+				width: $scheme-item-circle-size;
+				height: $scheme-item-circle-size;
+				@include flex-items-justify(center, center);
+				margin: auto;
+				background-color: $accent-blue;
+				border-radius: 100%;
+				border: $scheme-item-circle-border;
+				& > img {
+					display: block;
+					margin: auto;
+				}
+			}
+
+			.text {
+				margin: 20px auto 0;
+				font-size: 16px;
+				text-align: center;
+				word-break: break-all;
+			}
+		}
+		.dots {
+			position: absolute;
+			width: 100%;
+			@include flex-items-justify(center, center);
+			gap: 135px;
+			padding: 0 calc(209px / 2 + $scheme-item-circle-size/2 + 15px);
+			left: 0;
+			top: calc($scheme-item-circle-size/2);
+			transform: translateY(-50%);
+			z-index: 0;
+			@media screen and (max-width: $sm) {
+				display: none;
+			}
+			@media screen and (max-width: $xl) {
+				gap: 12vw;
+			}
+			&__row {
+				display: flex;
+				width: 100vw;
+				max-width: 110px;
+				justify-content: space-between;
+				@media screen and (max-width: $xl) {
+					justify-content: center;
+					gap: 1vw;
+				}
+
+				& > span {
+					display: block;
+					width: $scheme-item-dots-size;
+					height: $scheme-item-dots-size;
+					background: #c4c4c4;
+					border-radius: 100%;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,64 @@
+// Local vars
+$footer-gray: #c3c3c3;
+$footer-py: 30px;
+$footer-items-gap: 10px;
+
+.footer {
+	display: flex;
+	align-items: center;
+	padding: $footer-py 0;
+	background-color: $footer-bg;
+	* {
+		font-size: 13px;
+		color: $footer-gray;
+	}
+	&__container {
+		@include flex-items-justify(center, space-between);
+		@media screen and (max-width: $lg) {
+			flex-direction: column;
+			gap: 20px;
+		}
+	}
+	&__divider {
+		width: 1px;
+		height: 18px;
+		margin: 0 10px;
+		background-color: $footer-gray;
+		@media screen and (max-width: $lg) {
+			display: none;
+		}
+	}
+	&__payment,
+	&__contacts {
+		@include flex-items-justify(center, space-between);
+		width: 100%;
+		&-item,
+		& > a {
+			display: flex;
+			align-items: center;
+			gap: $footer-items-gap;
+			@media screen and (max-width: $sx) {
+				gap: calc($footer-items-gap / 2);
+			}
+			&_text {
+				align-self: flex-end;
+			}
+		}
+	}
+	&__payment {
+		max-width: 390px;
+	}
+	&__contacts {
+		max-width: 310px;
+		&-item {
+			&_text {
+				transition: color $main-transition;
+			}
+			&:hover {
+				.footer__contacts-item_text {
+					color: $accent-blue;
+				}
+			}
+		}
+	}
+}

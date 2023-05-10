@@ -1,0 +1,81 @@
+// Colors
+$primary: #fff;
+$black: #000;
+$accent-blue: #3e9cdc;
+$accent-blue-2: #42a9ed;
+$hover-blue: #43abf0;
+$bg: #272733;
+$footer-bg: #3d4050;
+$header-bg: rgba(
+	$color: #10101d,
+	$alpha: 0.9,
+);
+
+$form-item-height: 48px;
+$form-input-p: 10px;
+$form-input-bg: rgba(
+	$color: #fff,
+	$alpha: 0.85,
+);
+$form-input-border-color: #fff;
+$form-input-border-radius: 3px;
+$form-input-border: 1px solid $form-input-border-color;
+$form-input-active-border: 2px solid $accent-blue;
+
+$form-font-size-primary: 18px;
+$form-font-size-secondary: 16px;
+
+// Breakpoints
+$xs: 375px;
+$sx: 425px;
+$sx2: 475px;
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xl2: 1536px;
+
+$breakpoints: (
+	sx: $sx,
+	sx2: $sx2,
+	sm: $sm,
+	md: $md,
+	lg: $lg,
+	xl: $xl,
+	xl2: $xl2,
+);
+
+$main-px: 16px;
+$main-container-width: calc(1170px + $main-px);
+
+// Transitions
+$main-transition: 0.2s ease-in-out;
+
+// Mixins
+@mixin pseudo-elem($width, $height) {
+	content: '';
+	position: absolute;
+	width: $width;
+	height: $height;
+}
+
+@mixin flex-items-justify($items, $justify) {
+	display: flex;
+	align-items: $items;
+	justify-content: $justify;
+}
+
+// Change breakpoint-values
+@mixin set-breakpoint-values($param, $values) {
+	$keys: map-keys($breakpoints);
+	@each $value in $values {
+		$key: nth($keys, index($values, $value));
+		@media screen and (min-width: map-get($breakpoints, $key)) {
+			#{$param}: $value;
+		}
+	}
+}
+
+@mixin button-hover-shadow($color) {
+	box-shadow: 6px 6px $color;
+}

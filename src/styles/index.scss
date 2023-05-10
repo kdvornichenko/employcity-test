@@ -1,0 +1,11 @@
+@import 'variables';
+@import 'reset';
+@import 'fonts';
+@import 'base';
+
+// Components
+@import '../components/Header/header';
+@import '../components/FirstScreen/firstScreen';
+@import '../components/Ordering/odering';
+@import '../components/OrderForm/orderForm';
+@import '../components/Footer/footer';

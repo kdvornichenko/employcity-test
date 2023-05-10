@@ -1,0 +1,246 @@
+// Local vars
+$form-main-spacing: 30px;
+$form-active-item-border: 2px solid $accent-blue;
+
+$form-select-gray: #3d4050;
+$form-select-border-width: 1px;
+$form-select-border: $form-select-border-width solid $form-select-gray;
+$form-select-options-margin: 4px;
+
+$form-range-height: 6px;
+$form-ragne-control-size: 20px;
+$form-range-control-border-color: #286690;
+
+.order {
+	// Form
+	&-form {
+		margin-top: 80px;
+		* {
+			font-size: $form-font-size-primary;
+			@media screen and (max-width: $md) {
+				font-size: $form-font-size-secondary;
+			}
+		}
+		// Row
+		&__row {
+			display: flex;
+			margin-bottom: $form-main-spacing;
+			gap: $form-main-spacing;
+			justify-content: space-between;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			@media screen and (max-width: $sm) {
+				flex-direction: column;
+			}
+		}
+		// Item
+		&__item {
+			width: 100%;
+			max-width: 370px;
+			height: $form-item-height;
+			border: $form-input-border;
+			border-radius: $form-input-border-radius;
+			@media screen and (max-width: $sm) {
+				max-width: unset;
+			}
+			&:has(input:focus) {
+				border: $form-active-item-border;
+			}
+			// Label
+			&:not(.select-box) {
+				label {
+					width: 100%;
+					height: 100%;
+					display: block;
+					background-color: $form-input-bg;
+					input {
+						padding: 0 $form-input-p;
+						width: inherit;
+						height: inherit;
+						color: $bg;
+						outline: none;
+						&::placeholder {
+							color: $bg;
+						}
+					}
+					&:has(input:focus) {
+						background-color: #fff;
+					}
+				}
+			}
+			// Select Box
+			&.select-box {
+				position: relative;
+				border: $form-input-border;
+				border-radius: $form-input-border-radius;
+				&.active {
+					border: $form-select-border;
+					border-radius: $form-input-border-radius $form-input-border-radius 0 0;
+					.selected {
+						background: rgba($color: $form-select-gray, $alpha: 0.85);
+						color: $primary;
+						& > span {
+							color: $primary;
+						}
+					}
+					.options {
+						display: block;
+					}
+				}
+				.selected {
+					padding: 0 $form-input-p;
+					height: $form-item-height;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					background-color: $form-input-bg;
+					cursor: pointer;
+					color: $bg;
+					& > span {
+						color: $bg;
+					}
+				}
+
+				.options {
+					position: absolute;
+					top: 100%;
+					left: -$form-select-border-width;
+					width: calc(100% + $form-select-border-width * 2);
+					background: rgba($color: #272733, $alpha: 0.9);
+					border: $form-select-border;
+					border-top: none;
+					border-radius: 0 0 $form-input-border-radius $form-input-border-radius;
+					z-index: 1;
+					display: none;
+					&__wrap {
+						max-height: 200px;
+						overflow-y: auto;
+						margin: $form-select-options-margin;
+						&::-webkit-scrollbar {
+							width: 7px;
+							&-track {
+								background: $form-select-gray;
+								border-radius: 3px;
+							}
+							&-thumb {
+								background-color: $accent-blue;
+								border-radius: 3px;
+							}
+						}
+					}
+
+					label {
+						display: flex;
+						padding: 0 $form-input-p 0
+							calc($form-input-p - $form-select-options-margin);
+						height: $form-item-height;
+						align-items: center;
+						cursor: pointer;
+
+						input[type='radio'] {
+							margin-right: 10px;
+						}
+
+						&:hover {
+							background-color: #555;
+						}
+					}
+				}
+			}
+			// Range Box
+			&.range-box {
+				width: 66%;
+				max-width: unset;
+				display: flex;
+				flex-direction: column;
+				border: none;
+				@media screen and (max-width: $sm) {
+					width: 100%;
+				}
+				.range-box {
+					&__progress {
+						display: flex;
+						justify-content: space-between;
+						margin-bottom: auto;
+					}
+				}
+				&:has(input:focus) {
+					border: none;
+				}
+				& + .order-form__item {
+					width: calc(33% - 15px);
+					@media screen and (max-width: $sm) {
+						width: 100%;
+					}
+				}
+			}
+			// File Box
+			&.file-box {
+				&:hover {
+					background-color: #fff;
+					border: $form-active-item-border;
+				}
+				label {
+					@include flex-items-justify(center, center);
+				}
+				.file-box {
+					&__custom-choose {
+						width: max-content;
+						@include flex-items-justify(center, center);
+						gap: 10px;
+						& > span {
+							align-self: end;
+							text-transform: uppercase;
+							color: $bg;
+							font-size: 15px;
+						}
+					}
+				}
+			}
+			// Send Button
+			&.send-button {
+				background-color: $accent-blue;
+				text-transform: uppercase;
+				font-size: 15px;
+				margin: 10px auto 0;
+				transition: box-shadow $main-transition;
+				&:hover {
+					@include button-hover-shadow(#fff);
+				}
+			}
+		}
+
+		// Input Radio
+		input[type='radio'] {
+			display: none;
+
+			&:checked + span {
+				color: $accent-blue-2;
+			}
+		}
+		// Input Range
+		input[type='range'] {
+			background-color: rgba($color: #fff, $alpha: 0.7);
+			color: #ff0000;
+			appearance: none;
+			width: 100%;
+			height: $form-range-height;
+			border: $form-input-border;
+			border-radius: 100px;
+			&::-webkit-slider-thumb {
+				appearance: none;
+				width: $form-ragne-control-size;
+				height: $form-ragne-control-size;
+				background-color: $accent-blue-2;
+				border: 3px solid $form-range-control-border-color;
+				border-radius: 100%;
+				cursor: pointer;
+			}
+		}
+		// Input File
+		input[type='file'] {
+			display: none;
+		}
+	}
+}
